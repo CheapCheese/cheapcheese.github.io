@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import SupermarketView from "@/views/SupermarketView.vue";
-import CatalogView from "@/views/CatalogView.vue";
-import MapView from "@/views/MapView.vue";
+import SupermarketView from "../views/SupermarketView.vue";
+import CatalogView from "../views/CatalogView.vue";
+import MapView from "../views/MapView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
