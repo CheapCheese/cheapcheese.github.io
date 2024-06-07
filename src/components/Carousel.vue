@@ -1,5 +1,5 @@
 <script>
-import CheapCheeseService from "@/services/CheapCheeseService.js";
+import CheapCheeseService from "../services/CheapCheeseService";
 
 export default {
   name: "CarouselComponent",

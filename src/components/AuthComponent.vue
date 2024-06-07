@@ -1,5 +1,5 @@
 <script>
-import AuthService from '@/services/AuthService.js';
+import AuthService from '../services/CheapCheeseService';
 import axios from "axios";
 
 export default {
