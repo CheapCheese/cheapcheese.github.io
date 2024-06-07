@@ -50,6 +50,4 @@ app.component('Avatar', Avatar)
 app.component('OverlayPanel', OverlayPanel)
 app.directive('animateonscroll', AnimateOnScroll);
 
-
-
 app.mount('#app')
