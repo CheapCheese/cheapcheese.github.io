@@ -1,8 +1,8 @@
 <script>
-import HeaderComponent from "@/components/Header.vue";
-import CarouselComponent from "@/components/Carousel.vue";
-import AboutComponent from "@/components/AboutComponent.vue";
-import FooterComponent from "@/components/FooterComponent.vue";
+import HeaderComponent from "../components/Header.vue";
+import CarouselComponent from "../components/Carousel.vue";
+import AboutComponent from "../components/AboutComponent.vue";
+import FooterComponent from "../components/FooterComponent.vue";
 
 export default {
   components: {CarouselComponent, HeaderComponent, AboutComponent, FooterComponent},

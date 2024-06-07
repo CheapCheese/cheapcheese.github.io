@@ -1,7 +1,7 @@
 <script>
 import '/node_modules/mapbox-gl/dist/mapbox-gl.css';
-import HeaderComponent from "@/components/Header.vue";
-import MapComponent from "@/components/MapComponent.vue";
+import HeaderComponent from "../components/Header.vue";
+import MapComponent from "../components/MapComponent.vue";
 
 
 export default {
