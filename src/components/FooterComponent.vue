@@ -25,10 +25,9 @@ export default {
         <div class="footer-section links">
           <h3>Enlaces Útiles</h3>
           <ul>
-            <li><a href="/catalog">Catálogo</a></li>
-            <li><a href="/supermarket">Supermercados</a></li>
-            <li><a href="/map">Consultar Ubicaciones</a></li>
-            <li><a href="/terms">Términos de Servicio</a></li>
+            <li><RouterLink to="/catalog"><a>Catálogo</a></RouterLink></li>
+            <li><RouterLink to="/supermarket"><a>Supermercados</a></RouterLink></li>
+            <li><RouterLink to="/map"><a>Consultar Ubicaciones</a></RouterLink></li>
           </ul>
         </div>
       </div>
