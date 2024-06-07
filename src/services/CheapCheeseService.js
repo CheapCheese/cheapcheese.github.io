@@ -1,5 +1,4 @@
 import axios from 'axios';
-axios.defaults.headers.common['Origin'] = 'http://20.224.64.191:8080';
 
 const PRODUCTS_URL = "http://20.224.64.191:8080/api/v1/products";
 const SUPERMARKETS_URL = "http://20.224.64.191:8080/api/v1/supermarkets";

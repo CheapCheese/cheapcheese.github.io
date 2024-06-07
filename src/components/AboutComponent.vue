@@ -1,3 +1,12 @@
+<script>
+import MiniMapComponent from "../components/MiniMapComponent.vue";
+
+export default {
+  components: {MiniMapComponent}
+}
+
+</script>
+
 <template>
     <div class="card flex flex-column align-items-center">
       <div class="flex flex-column align-items-center gap-2">
@@ -6,7 +15,7 @@
                 <i class="pi pi-arrow-down" />
             </span>
       </div>
-      <div class="h-5rem"></div>
+      <div class="h-2rem"></div>
         <div v-animateonscroll="{ enterClass: 'fadein', leaveClass: 'fadeout' }" class="flex justify-content-center align-items-center h-10rem w-10rem sm:h-15rem sm:w-15rem border-round animation-duration-1000">
             <img src="../assets/logo.png" style="width: 200px;">
         </div>
@@ -27,6 +36,9 @@
             Ya sea que estés buscando quesos curados, quesos frescos, quesos rallados o cualquier otro producto lácteo,
             nuestra plataforma te ofrece una manera sencilla y eficiente de encontrar las mejores ofertas disponibles en el mercado.
           </span>
+        </div>
+        <div v-animateonscroll="{ enterClass: 'fadein', leaveClass: 'fadeout' }" class="animation-duration-1000" style="width: 100%;">
+          <MiniMapComponent/>
         </div>
     </div>
 </template>

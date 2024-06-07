@@ -3,6 +3,25 @@ import CheapCheeseService from "../services/CheapCheeseService";
 
 export default {
   name: "CarouselComponent",
+  props: {
+    // Prop para especificar la tienda de la que obtener los productos
+    titulo: {
+      type: String,
+      required: true
+    },
+    tienda: {
+      type: String,
+      required: false
+    },
+    tipo: {
+      type: String,
+      required: false
+    },
+    precio: {
+      type: Number,
+      required: false
+    }
+  },
   data() {
     return {
       productos: [],
@@ -22,11 +41,14 @@ export default {
     },
     async getProductos() {
       let response = await CheapCheeseService.getProducts();
-      response.data
-          .forEach(x => {
-            if (x.tienda === 'Carrefour')
-              this.productos.push(x);
-          })
+      if (this.tipo) {
+        this.productos = response.data.filter(producto => producto.tipo === this.tipo);
+      } else if(this.precio) {
+        this.productos = response.data.filter(producto => producto.precio < this.precio);
+      } else {
+        this.productos = response.data.filter(producto => producto.tienda === this.tienda);
+      }
+      
     }
   },
   created() {
@@ -36,12 +58,12 @@ export default {
 </script>
 
 <template>
-  <div class="flex justify-content-center mt-4">
-    <h1>NOVEDADES DE CARREFOUR</h1>
+  <div class="flex justify-content-center mt-4 mr-2 align-items-center">
+    <h1>{{ titulo }}</h1>
   </div>
 
   <!--Carousel de los últimos quesos a la venta-->
-  <Carousel :value="productos" :numVisible="3" :numScroll="1" circular
+  <Carousel :value="productos" :numVisible="1" :numScroll="1" circular
             :autoplayInterval="4000">
     <template #item="slotProps">
       <div class="border-1 surface-border border-round m-2  p-3">

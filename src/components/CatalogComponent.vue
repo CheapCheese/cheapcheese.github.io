@@ -1,6 +1,6 @@
 <script>
 import CheapCheeseService from "../services/CheapCheeseService";
-
+// TODO: Hacer desplegable el filtro por tienda. 
 export default {
   name: "CatalogComponent",
   data() {
