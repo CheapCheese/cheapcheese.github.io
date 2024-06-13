@@ -1,6 +1,6 @@
 <script>
 import CheapCheeseService from "../services/CheapCheeseService";
-// TODO: Hacer desplegable el filtro por tienda. 
+
 export default {
   name: "CatalogComponent",
   data() {
@@ -8,22 +8,26 @@ export default {
       productos: [],
       filteredProductos: [],
       layout: 'grid',
-      tiendaFilter: '',
+      tiendas: ['Carrefour', 'Dia', 'Consum'], // Añade tus tiendas aquí
+      tipos: ['Curado', 'Fresco', 'Rallado'], // Añade tus tipos aquí
+      tiendaFilter: [],
       precioFilter: null,
-      tipoFilter: ''
+      tipoFilter: [],
+      textFilter: '' // Nuevo filtro de texto
     }
   },
   methods: {
     async getProductos() {
       let response = await CheapCheeseService.getProducts();
       this.productos = response.data;
+      this.applyFilters();
     },
     applyFilters() {
       this.filteredProductos = this.productos.filter(producto => {
-        console.log(producto);
-        return (this.tiendaFilter ? producto.tienda === this.tiendaFilter : true) &&
-            (this.precioFilter ? producto.precio <= this.precioFilter : true) &&
-            (this.tipoFilter ? producto.tipo === this.tipoFilter : true);
+        return (this.tiendaFilter.length ? this.tiendaFilter.includes(producto.tienda) : true) &&
+               (this.precioFilter !== null ? producto.precio <= this.precioFilter : true) &&
+               (this.tipoFilter.length ? this.tipoFilter.includes(producto.tipo) : true) &&
+               (this.textFilter ? producto.nombre.toLowerCase().includes(this.textFilter.toLowerCase()) : true);
       });
     }
   },
@@ -35,6 +39,9 @@ export default {
       this.applyFilters();
     },
     tipoFilter() {
+      this.applyFilters();
+    },
+    textFilter() {
       this.applyFilters();
     }
   },
@@ -48,10 +55,29 @@ export default {
   <!--Catálogo de los productos, total-->
   <div class="card">
     <h1 class="flex justify-content-center align-items-center mt-8 mb-3">CATÁLOGO</h1>
-    <div class="flex justify-content-between mb-4 mr-2 ml-2">
-      <input v-model="tiendaFilter" placeholder="Filtrar por tienda" class="p-inputtext p-component"/>
-      <input v-model.number="precioFilter" type="number" placeholder="Filtrar por precio máximo" class="p-inputtext p-component"/>
-      <input v-model="tipoFilter" placeholder="Filtrar por tipo" class="p-inputtext p-component"/>
+    <div class="filter-container flex mb-4 mr-2 ml-2">
+      <div class="filter-section">
+        <label class="filter-label">Filtrar por tienda</label>
+        <div v-for="tienda in tiendas" :key="tienda" class="p-field-checkbox filter-checkbox">
+          <CheckBox v-model="tiendaFilter" :value="tienda" />
+          <label>{{ tienda }}</label>
+        </div>
+      </div>
+      <div class="filter-section">
+        <label class="filter-label">Filtrar por tipo</label>
+        <div v-for="tipo in tipos" :key="tipo" class="p-field-checkbox filter-checkbox">
+          <CheckBox v-model="tipoFilter" :value="tipo" />
+          <label>{{ tipo }}</label>
+        </div>
+      </div>
+      <div class="filter-section">
+        <label class="filter-label">Filtrar por precio máximo</label>
+        <input v-model.number="precioFilter" type="number" placeholder="Precio máximo" class="p-inputtext p-component"/>
+      </div>
+      <div class="filter-section">
+        <label class="filter-label">Filtrar por texto</label>
+        <input v-model="textFilter" placeholder="¿Qué quieres buscar?" class="p-inputtext p-component mr-5"/>
+      </div>
     </div>
     <DataView :value="filteredProductos" :layout="layout">
       <template #grid="slotProps">
@@ -67,12 +93,6 @@ export default {
                 <div class="flex flex-row justify-content-between align-items-start gap-2">
                   <div>
                     <div class="text-lg font-medium text-900 mt-1">{{ item.nombre }}</div>
-                  </div>
-                  <div class="surface-100 p-1" style="border-radius: 30px">
-                    <div class="surface-0 flex align-items-center gap-2 justify-content-center py-1 px-2"
-                         style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)">
-                      <i class="pi pi-star-fill text-yellow-500"></i>
-                    </div>
                   </div>
                 </div>
                 <div class="flex flex-column gap-4 mt-4">
@@ -90,5 +110,29 @@ export default {
 <style scoped>
 .decoration {
   text-decoration: none
+}
+.filter-container {
+  border: 2px solid orange;
+  padding: 1rem;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.filter-section {
+  display: flex;
+  flex-direction: column;
+}
+.filter-label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.filter-checkbox {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+.filter-checkbox label {
+  margin-left: 0.5rem;
 }
 </style>

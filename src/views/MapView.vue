@@ -6,6 +6,7 @@ import MapComponent from "../components/MapComponent.vue";
 
 export default {
   components: {HeaderComponent, MapComponent},
+  // Variables donde inicia el Mapa.
   data: () => ({
     location: {
       lng: -0.23148,

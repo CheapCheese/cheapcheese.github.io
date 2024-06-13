@@ -38,9 +38,7 @@ export default defineComponent({
     </template>
 
     <template #end>
-      <Button icon="pi pi-search" class="mr-3"/>
-      <input v-model="Filter" placeholder="¿Qué quieres buscar?" class="p-inputtext p-component mr-5"/>
-      <div class="card flex justify-content-center">
+      <!-- <div class="card flex justify-content-center">
         <Avatar icon="pi pi-user" class="mr-2 bg-white" size="xlarge" shape="circle" @click="toggle" aria-controls="overlay_panel"/>
 
         <OverlayPanel ref="op" appendTo="body">
@@ -58,7 +56,7 @@ export default defineComponent({
             </div>
           </div>
         </OverlayPanel>
-      </div>
+      </div> -->
     </template>
   </Toolbar>
 
