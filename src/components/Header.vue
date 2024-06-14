@@ -1,5 +1,5 @@
 <script>
-import {defineComponent, ref} from "vue";
+import {defineComponent} from "vue";
 // TODO: Llamar al servicio para recibir el usuario
 export default defineComponent({
   name: "HeaderComponent",
@@ -33,6 +33,9 @@ export default defineComponent({
         </RouterLink>
         <RouterLink to="/map" class="ml-5 font-medium text-xl decoration text-black-alpha-90">
           Ubicación <i class="pi pi-map-marker"/>
+        </RouterLink>
+        <RouterLink to="/graph" class="ml-5 font-medium text-xl decoration text-black-alpha-90">
+          Interés <i class="pi pi-chart-bar"/>
         </RouterLink>
       </div>
     </template>

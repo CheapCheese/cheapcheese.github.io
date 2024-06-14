@@ -37,7 +37,7 @@ export default {
 </script>
 
 <template>
-  <span class="font-medium text-5xl flex justify-content-center mt-5">Patrocinadores</span>
+  <span class="font-medium text-5xl flex justify-content-center mt-5">Supermercados</span>
   <!--Carousel de los últimos quesos a la venta-->
   <Carousel :value="supermercados" :numVisible="3">
     <template #item="slotProps">

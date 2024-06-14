@@ -1,5 +1,5 @@
 <script>
-import MiniMapComponent from "../components/MiniMapComponent.vue";
+import MiniMapComponent from "./map/MiniMapComponent.vue";
 
 export default {
   components: {MiniMapComponent}
