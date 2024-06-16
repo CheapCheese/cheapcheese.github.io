@@ -11,9 +11,9 @@ export default {
       tiendas: ['Carrefour', 'Dia', 'Consum'], // Añade tus tiendas aquí
       tipos: ['Curado', 'Fresco', 'Rallado'], // Añade tus tipos aquí
       tiendaFilter: [],
-      precioFilter: null,
+      precioFilter: 0, // Inicializado a 0
       tipoFilter: [],
-      textFilter: '' // Nuevo filtro de texto
+      textFilter: ''
     }
   },
   methods: {
@@ -25,7 +25,7 @@ export default {
     applyFilters() {
       this.filteredProductos = this.productos.filter(producto => {
         return (this.tiendaFilter.length ? this.tiendaFilter.includes(producto.tienda) : true) &&
-               (this.precioFilter !== null ? producto.precio <= this.precioFilter : true) &&
+               (this.precioFilter !== 0 ? producto.precio <= this.precioFilter : true) &&
                (this.tipoFilter.length ? this.tipoFilter.includes(producto.tipo) : true) &&
                (this.textFilter ? producto.nombre.toLowerCase().includes(this.textFilter.toLowerCase()) : true);
       });
@@ -72,7 +72,8 @@ export default {
       </div>
       <div class="filter-section">
         <label class="filter-label">Filtrar por precio máximo</label>
-        <input v-model.number="precioFilter" type="number" placeholder="Precio máximo" class="p-inputtext p-component"/>
+        <Slider v-model.number="precioFilter" min="0" max="20" class="mt-1"/>
+        <span><br>Hasta {{ precioFilter }} €</span>
       </div>
       <div class="filter-section">
         <label class="filter-label">Filtrar por texto</label>
@@ -109,7 +110,7 @@ export default {
 
 <style scoped>
 .decoration {
-  text-decoration: none
+  text-decoration: none;
 }
 .filter-container {
   border: 2px solid orange;

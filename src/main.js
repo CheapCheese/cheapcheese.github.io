@@ -24,6 +24,7 @@ import Avatar from "primevue/avatar";
 import OverlayPanel from "primevue/overlaypanel";
 import AnimateOnScroll from 'primevue/animateonscroll';
 import Checkbox from 'primevue/checkbox';
+import Slider from 'primevue/slider';
 
 const pinia = createPinia()
 
@@ -35,6 +36,7 @@ app.use(pinia)
 app.use(ToastService);
 
 app.component("Menubar", Menubar)
+app.component("Slider", Slider)
 app.component("CheckBox", Checkbox)
 app.component("Toolbar", Toolbar)
 app.component("Button", Button)
