@@ -4,8 +4,8 @@ export default {
     data() {
         return {
             tableData: [
-                { category: "Productos", link: "http://20.224.64.191:8080/api/v1/products/export-excel" },
-                { category: "Supermercados", link: "http://20.224.64.191:8080/api/v1/products/excel" }
+                { category: "Products.xlsx 📄", link: "http://20.224.64.191:8080/api/v1/products/products_excel" },
+                { category: "Supermarkets.xlsx 📄", link: "http://20.224.64.191:8080/api/v1/products/supermarkets_excel" }
             ]
         }
     }
@@ -14,13 +14,13 @@ export default {
 
 <template>
     <section class="section">
-        <h2 class="flex justify-content-center">Archivos Relevantes</h2>
+        <h2 class="flex justify-content-center">Archivos Relevantes 📂</h2>
         <div class="table-container">
             <table>
                 <thead>
                     <tr>
-                        <th>Categoría</th>
-                        <th>Descargar</th>
+                        <th>Archivos</th>
+                        <th>Descargas</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -38,7 +38,8 @@ export default {
     </section>
     <p class="complement-text">
             <i class="pi pi-info-circle"/>Los archivos disponibles contienen información privada y detallada sobre los productos de diversos supermercados. 
-            El archivo de "Productos" incluye una lista exhaustiva de todos los productos disponibles. 
+            El archivo de "Products" se encuentra un gráfico que muestra características importantes, 
+            como el precio máximo por tipo de queso. 
             En el archivo de "Supermercados" se encuentra un gráfico que muestra características importantes, 
             como el precio máximo del queso en cada supermercado.
     </p>

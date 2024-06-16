@@ -54,7 +54,7 @@ export default {
 <template>
   <!--Catálogo de los productos, total-->
   <div class="card">
-    <h1 class="flex justify-content-center align-items-center mt-8 mb-3">CATÁLOGO</h1>
+    <h1 class="flex justify-content-center align-items-center mt-8 mb-3">CATÁLOGO 🛍️</h1>
     <div class="filter-container flex mb-4 mr-2 ml-2">
       <div class="filter-section">
         <label class="filter-label">Filtrar por tienda</label>

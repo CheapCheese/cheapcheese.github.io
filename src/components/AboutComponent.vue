@@ -21,7 +21,7 @@ export default {
         </div>
         <div v-animateonscroll="{ enterClass: 'fadein', leaveClass: 'fadeout' }" class="flex justify-content-center animation-duration-1000">
           <span class="text-4xl">
-            Bienvenidos a CheapCheese
+            Bienvenidos a CheapCheese 🧀
           </span>  
         </div>
         <div v-animateonscroll="{ enterClass: 'fadein', leaveClass: 'fadeout' }" class="mr-8 ml-8 mt-4 flex justify-content-center h-10rem animation-duration-1000">
