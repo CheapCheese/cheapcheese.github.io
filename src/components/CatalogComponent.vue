@@ -9,7 +9,7 @@ export default {
       filteredProductos: [],
       layout: 'grid',
       tiendas: ['Carrefour', 'Dia', 'Consum'], // Añade tus tiendas aquí
-      tipos: ['Curado', 'Fresco', 'Rallado'], // Añade tus tipos aquí
+      tipos: ['Curado', 'Fresco', 'Rallado', 'Semicurado', 'Tierno', 'Fundido'], // Añade tus tipos aquí
       tiendaFilter: [],
       precioFilter: 0, // Inicializado a 0
       tipoFilter: [],
